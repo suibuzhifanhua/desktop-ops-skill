@@ -15,7 +15,7 @@
 | 🔄 Windows 10 更新助手 | https://www.microsoft.com/zh-cn/software-download/windows10 | 点击"立即更新工具"下载 |
 | 📀 Win10 原版 ISO 镜像 | https://www.microsoft.com/zh-cn/software-download/windows10 | 点击"下载 Windows 10 磁盘映像 (ISO)" |
 
-> **所有工具均可直接点击上方链接下载**，或使用文件夹中已有的本地工具版本。
+> **所有工具均可直接点击上方链接下载。**
 
 ---
 
@@ -29,7 +29,7 @@
 
 1. 下载并安装 [PC 健康状况检查工具](https://aka.ms/getpchealthcheckapp)（官方原名：Windows PC Health Check）
 2. 运行该工具，确认所有检测项（CPU、内存、磁盘空间、TPM、Secure Boot）都显示为 ✅
-3. 若有任意项为 ❌，跳转至对应问题章节处理
+3. 若有任意项为 ❌，根据失败项跳转处理：TPM 问题 → [问题 3](#问题-3提示tpm-模块未开启或没有-tpm-模块)；版本不符合 → [问题 1](#问题-1检测通过但提示版本不符合)；升级回退 → [问题 2](#问题-2升级后一直回退rolling-back)
 
 **第二步：运行 Win11 升级工具**
 
@@ -38,7 +38,7 @@
 > - C 盘重要资料（文档、照片、工作文件等）
 > - 建议备份到外接硬盘或 D 盘
 
-1. 确认所有检测项通过后，下载并运行 [Windows 11 更新助手](https://www.microsoft.com/zh-cn/software-download/windows11)（或使用文件夹中的 `Windows10Upgrade9252.exe`）
+1. 确认所有检测项通过后，下载并运行 [Windows 11 更新助手](https://www.microsoft.com/zh-cn/software-download/windows11)
 2. 工具会自动开始下载并升级，无需其他操作
 3. 等待系统自动重启完成升级
 
@@ -61,8 +61,7 @@
 ```
 
 **方案 B：使用 Win10 更新助手**
-- 运行 `Windows10Upgrade9252.exe`（跳过版本检查的版本）
-- 或下载官方 [Windows 10 更新助手](https://www.microsoft.com/zh-cn/software-download/windows10) → "立即更新工具"
+- 下载官方 [Windows 10 更新助手](https://www.microsoft.com/zh-cn/software-download/windows10) → "立即更新工具"
 
 > 目标：先将 Win10 升级到 22H2 最新版，再进行 Win11 升级。
 
@@ -84,7 +83,7 @@
 
 **重置过程中可能遇到的问题：**
 
-- **进度条卡住不动**：直接断电强制关机，用 U 盘重新安装系统（见第三节）
+- **进度条卡住不动**：直接断电强制关机，用 U 盘重新安装系统（见[第三节](#三硬件不支持--u-盘重装系统)）
 - **要求联网跳过不了**：同时按 `Shift + F10` → 输入 `oobe\BypassNRO.cmd` → 回车 → 电脑自动重启 → 跳过按钮出现
 - **要求登录微软账号**：输入以下虚假账号跳过：
   ```
@@ -107,7 +106,7 @@
 
 **症状**：BIOS 中完全找不到 TPM 选项，PC Health Check 显示"不支持"。
 
-**解决方法**：无法通过绕过方式安装，**直接使用原版镜像重装 Win11**（见第三节）。
+**解决方法**：无法通过绕过方式安装，**直接使用原版镜像重装 Win11**（见[第三节](#三硬件不支持--u-盘重装系统)）。
 
 > 微软要求 TPM 2.0 是硬性要求，无法通过修改绕过。
 
@@ -150,7 +149,7 @@
 #### 第二步：用 Rufus 制作启动 U 盘
 
 1. 将 U 盘插入正常电脑
-2. 运行 [Rufus](https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14p.exe)（或文件夹中的 `rufus-3.13p.exe`）
+2. 运行 [Rufus](https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14p.exe)
    > 官方最新 v4.14：[标准版](https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14.exe)｜[便携版 `p`](https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14p.exe)
 3. 设备中选择你的 U 盘
 4. 引导类型选择：点击"选择"按钮 → 找到下载的 Win11 ISO 文件

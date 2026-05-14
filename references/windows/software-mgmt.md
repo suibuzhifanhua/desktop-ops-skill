@@ -9,13 +9,14 @@ winget install Microsoft.VisualStudioCode
 winget upgrade --all
 winget uninstall Microsoft.VisualStudioCode
 
-# Chocolatey（需先安装）
+# Chocolatey（[安装说明](https://chocolatey.org/install)）
 choco install googlechrome -y
 choco upgrade all -y
 choco uninstall googlechrome -y
 choco list --local-only    # 已安装软件
 
 # Scoop（适合开发工具，无需管理员）
+# 安装：irm get.scoop.sh | iex
 scoop install git nodejs python
 scoop update *
 ```
@@ -38,8 +39,7 @@ scoop update *
 # 生成 MSI 详细安装日志
 msiexec /i installer.msi /l*v C:\Temp\install_log.txt
 
-# 修复所有 VC++ 运行库（推荐工具：VisualCppRedist_AIO）
-# 下载地址：https://github.com/abbodi1406/vcredist
+# 修复所有 VC++ 运行库（推荐工具：[VisualCppRedist_AIO](https://github.com/abbodi1406/vcredist/releases/latest)）
 
 # 修复 .NET Framework
 dism /online /enable-feature /featurename:NetFx3 /all
@@ -65,7 +65,7 @@ msiexec /x $app.IdentifyingNumber /quiet
 # %APPDATA%, %LOCALAPPDATA%, %PROGRAMDATA%, C:\Program Files (x86)\
 ```
 
-推荐工具：**Revo Uninstaller**（免费版支持深度卸载+残留清理）
+推荐工具：[**Revo Uninstaller**](https://www.revouninstaller.com/revo-uninstaller-free-download/)（免费版支持深度卸载+残留清理）
 
 ---
 
@@ -81,9 +81,9 @@ dism /online /cleanup-image /restorehealth
 sfc /scannow
 
 # 查找 DLL 所属安装包
-# 方法1：在 everything 中搜索 dll 名称
+# 方法1：在 [Everything](https://www.voidtools.com/) 中搜索 dll 名称
 # 方法2：在 DLL-files.com 查找（验证来源）
-# 方法3：用 Dependencies 工具分析 exe 依赖
+# 方法3：用 [Dependencies](https://github.com/lucasg/Dependencies/releases) 工具分析 exe 依赖
 ```
 
 ---

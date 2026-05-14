@@ -42,7 +42,7 @@ Get-Process | Sort-Object WorkingSet -Descending | Select-Object -First 15 Name,
 # 系统总内存状态
 Get-WmiObject Win32_OperatingSystem | Select-Object @{N="Total(GB)";E={[math]::Round($_.TotalVisibleMemorySize/1MB,2)}}, @{N="Free(GB)";E={[math]::Round($_.FreePhysicalMemory/1MB,2)}}
 
-# 清理待机内存（需要 RAMMap 工具或 EmptyStandbyList.exe）
+# 清理待机内存（需要 [RAMMap](https://learn.microsoft.com/en-us/sysinternals/downloads/rammap) 或 [EmptyStandbyList](https://learn.microsoft.com/en-us/sysinternals/downloads/rammap)，均为 Sysinternals 工具）
 # EmptyStandbyList.exe workingsets
 ```
 
@@ -54,11 +54,11 @@ Get-WmiObject Win32_OperatingSystem | Select-Object @{N="Total(GB)";E={[math]::R
 # 查看 GPU 使用（Windows 10/11，需要 WMI 支持）
 Get-Counter "\GPU Engine(*)\Utilization Percentage" | Select-Object -ExpandProperty CounterSamples | Where-Object {$_.CookedValue -gt 0}
 
-# nvidia-smi（需安装 NVIDIA 驱动）
+# nvidia-smi（需安装 [NVIDIA 驱动](https://www.nvidia.com/Download/index.aspx)，安装后 nvidia-smi 随驱动附带）
 nvidia-smi
 nvidia-smi dmon -s u  # 实时监控
 
-# 任务管理器 GPU 引擎对应关系
+# 任务管理器 GPU 引擎类型含义对照表
 # 3D = 渲染  Copy = 视频复制  Compute = 计算  Video Decode/Encode = 硬件编解码
 ```
 

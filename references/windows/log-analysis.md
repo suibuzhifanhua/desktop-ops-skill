@@ -43,11 +43,11 @@ Get-EventLog -LogName System -Source "BugCheck" -Newest 5
 # 小内存转储：C:\Windows\Minidump\
 # 完整转储：C:\Windows\MEMORY.DMP
 
-# 用 WinDbg 分析（需安装）
+# 用 WinDbg 分析（[下载 WinDbg Preview（Microsoft Store）](https://apps.microsoft.com/detail/9PGJGD53TN86) 或搜索"WinDbg"安装）
 # windbg -z C:\Windows\Minidump\xxxx.dmp
 # !analyze -v
 
-# 在线分析工具：WhoCrashed（推荐）
+# 在线分析工具：[WhoCrashed](https://www.resplendence.com/whocrashed)（推荐）
 ```
 
 常见蓝屏代码：

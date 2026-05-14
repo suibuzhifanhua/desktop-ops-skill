@@ -64,9 +64,9 @@ conda clean --all -y
 
 ## 大文件定位工具推荐
 
-- **Windows**：WinDirStat、TreeSize Free、SpaceSniffer
-- **macOS**：DaisyDisk、OmniDiskSweeper
-- **Linux**：`ncdu`（`apt install ncdu`）、`dust`
+- **Windows**：[WinDirStat](https://windirstat.net/)｜[TreeSize Free](https://www.jam-software.com/treesize_free)｜[SpaceSniffer](http://www.uderzo.it/main_products/space_sniffer/)
+- **macOS**：[DaisyDisk](https://daisydiskapp.com/)｜[OmniDiskSweeper](https://www.omnigroup.com/more/)
+- **Linux**：[ncdu](https://dev.yorhi.nl/ncdu)（`apt install ncdu`）｜[dust](https://github.com/bootandy/dust)（`cargo install du-dust`）
 
 ---
 
