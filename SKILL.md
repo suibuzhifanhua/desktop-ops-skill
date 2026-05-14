@@ -90,7 +90,8 @@ description: >
 #### 1. 实战杂问题速查（持续更新）
 - 参考：[references/domestic-os/quick-fixes.md](references/domestic-os/quick-fixes.md)
 - 触发词：统信UOS、银河麒麟、Deepin、国产系统装软件、驱动问题、输入法、
-  兼容模式、麒麟应用商店、UOS 激活、deb 安装失败
+  兼容模式、麒麟应用商店、UOS 激活、deb 安装失败、国产系统远程桌面、
+  xrdp、x11vnc、Windows连接麒麟、RDP访问UOS
 
 ---
 
