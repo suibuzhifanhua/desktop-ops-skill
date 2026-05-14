@@ -15,7 +15,7 @@
 | 🔄 Windows 10 更新助手 | https://www.microsoft.com/zh-cn/software-download/windows10 | 点击"立即更新工具"下载 |
 | 📀 Win10 原版 ISO 镜像 | https://www.microsoft.com/zh-cn/software-download/windows10 | 点击"下载 Windows 10 磁盘映像 (ISO)" |
 
-> **文件夹中已有工具可直接使用**；若需最新版或文件丢失，点击上表对应链接前往官方下载。
+> **所有工具均可直接点击上方链接下载**，或使用文件夹中已有的本地工具版本。
 
 ---
 
@@ -27,11 +27,9 @@
 
 **第一步：安装 PC 健康检测工具**
 
-1. 运行文件夹中的 `WindowsPCHealthCheckSetup (1).msi`
-   > 官方最新版下载：https://aka.ms/getpchealthcheckapp
-2. 安装完成后，双击运行该工具
-3. 确认界面中所有检测项（CPU、内存、磁盘空间、TPM、Secure Boot）都显示为 ✅
-4. 若有任意项为 ❌，跳转至对应问题章节处理
+1. 下载并安装 [PC 健康状况检查工具](https://aka.ms/getpchealthcheckapp)（官方原名：Windows PC Health Check）
+2. 运行该工具，确认所有检测项（CPU、内存、磁盘空间、TPM、Secure Boot）都显示为 ✅
+3. 若有任意项为 ❌，跳转至对应问题章节处理
 
 **第二步：运行 Win11 升级工具**
 
@@ -40,8 +38,7 @@
 > - C 盘重要资料（文档、照片、工作文件等）
 > - 建议备份到外接硬盘或 D 盘
 
-1. 确认所有检测项通过后，运行文件夹中的 `Windows10Upgrade9252.exe`（或对应版本）
-   > 官方最新版下载：https://www.microsoft.com/zh-cn/software-download/windows11 → "Windows 11 更新助手"
+1. 确认所有检测项通过后，下载并运行 [Windows 11 更新助手](https://www.microsoft.com/zh-cn/software-download/windows11)（或使用文件夹中的 `Windows10Upgrade9252.exe`）
 2. 工具会自动开始下载并升级，无需其他操作
 3. 等待系统自动重启完成升级
 
@@ -65,7 +62,7 @@
 
 **方案 B：使用 Win10 更新助手**
 - 运行 `Windows10Upgrade9252.exe`（跳过版本检查的版本）
-- 或下载官方 Windows 10 更新助手：https://www.microsoft.com/zh-cn/software-download/windows10 → "立即更新工具"
+- 或下载官方 [Windows 10 更新助手](https://www.microsoft.com/zh-cn/software-download/windows10) → "立即更新工具"
 
 > 目标：先将 Win10 升级到 22H2 最新版，再进行 Win11 升级。
 
@@ -142,21 +139,19 @@
 | U盘 | ≥ 8GB，安装过程会格式化，**提前备份 U 盘数据** |
 | 正常电脑 | 用于写入镜像（可以是任意 Win10/11 系统） |
 | 系统镜像 | 下载 Win11 原版 ISO（微软官网） |
-| 写入工具 | `rufus-3.13p.exe`（文件夹中已有） |
+| 写入工具 | [Rufus v4.14 便携版](https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14p.exe)（推荐）或 [官网下载页面](https://rufus.ie/downloads/) |
 
 ### 操作步骤
 
 #### 第一步：下载 Win11 镜像
 
-- 微软官网：https://www.microsoft.com/zh-cn/software-download/windows11
-- 选择"下载 Windows 11 磁盘映像 (ISO)" → 选择中文简体 → 下载 ISO 文件
+下载 [Win11 原版 ISO 镜像](https://www.microsoft.com/zh-cn/software-download/windows11)：选择"下载 Windows 11 磁盘映像 (ISO)" → 选择中文简体 → 下载 ISO 文件
 
 #### 第二步：用 Rufus 制作启动 U 盘
 
 1. 将 U 盘插入正常电脑
-2. 运行 `rufus-3.13p.exe`（文件夹中已有）
-   > 官方最新版（v4.14）：https://rufus.ie/downloads/ → `rufus-4.14.exe`
-   > 便携版（推荐）：https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14p.exe
+2. 运行 [Rufus](https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14p.exe)（或文件夹中的 `rufus-3.13p.exe`）
+   > 官方最新 v4.14：[标准版](https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14.exe)｜[便携版 `p`](https://github.com/pbatard/rufus/releases/download/v4.14/rufus-4.14p.exe)
 3. 设备中选择你的 U 盘
 4. 引导类型选择：点击"选择"按钮 → 找到下载的 Win11 ISO 文件
 5. 分区方案选择：
