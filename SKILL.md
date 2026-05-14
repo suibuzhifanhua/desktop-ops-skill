@@ -71,6 +71,11 @@ description: >
   C盘满了、卓越性能、关闭休眠、打印机连不上、两个微信、弹窗广告、查 SSD/HDD、
   内存条型号、DNS 推荐、黑屏重置显卡、验证哈希值、U盘热插拔、映射盘断开
 
+#### 10. BAT 实用脚本工具合集
+- 参考：[references/windows/bat-tools.md](references/windows/bat-tools.md)
+- 触发词：bat脚本、批处理、查序列号、强制删除、一键更新软件、清理缓存、快速锁屏、
+  winget批量更新、删不掉的文件、临时文件清理、激活密钥查询
+
 ---
 
 ## 🇨🇳 国产系统分支
