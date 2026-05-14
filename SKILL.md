@@ -81,6 +81,10 @@ description: >
 - 触发词：重装系统、升级Win11、安装Win11、U盘装系统、TPM未开启、版本不符合、
   升级回退、重置电脑、直升Win11、rufus制作启动盘、Win10升级助手、PC Health Check
 
+#### 12. Win11/10 性能优化指南（持续更新）
+- 参考：[references/windows/win11-optimization.md](references/windows/win11-optimization.md)
+- 触发词：电脑卡、开机慢、游戏帧率低、系统优化、关闭动画、内存清理、磁盘瘦身
+
 ---
 
 ## 🇨🇳 国产系统分支
