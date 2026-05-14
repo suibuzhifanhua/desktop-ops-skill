@@ -76,6 +76,11 @@ description: >
 - 触发词：bat脚本、批处理、查序列号、强制删除、一键更新软件、清理缓存、快速锁屏、
   winget批量更新、删不掉的文件、临时文件清理、激活密钥查询
 
+#### 11. Windows 重装 / 升级 Win11 操作指南
+- 参考：[references/windows/win-install-upgrade.md](references/windows/win-install-upgrade.md)
+- 触发词：重装系统、升级Win11、安装Win11、U盘装系统、TPM未开启、版本不符合、
+  升级回退、重置电脑、直升Win11、rufus制作启动盘、Win10升级助手、PC Health Check
+
 ---
 
 ## 🇨🇳 国产系统分支
