@@ -75,3 +75,24 @@ conda clean --all -y
 1. 删除前先确认文件用途，`%TEMP%` 内正被使用的文件会删除失败（跳过即可）
 2. `Windows.old` 删除后无法回滚系统升级
 3. DISM `/resetbase` 会使已安装的更新无法卸载，慎用
+
+---
+
+## 桌面换盘（通过注册表迁移桌面路径）
+
+> 来源：[Fisheep的新世界](https://fisheep.fun/yummy/78)
+
+C 盘空间不足时，可将桌面文件夹迁移到其他分区，减少系统盘占用。
+
+### 操作步骤
+
+1. **Win + R** 打开运行，输入 `regedit` 回车
+2. 定位到：
+   ```
+   HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
+   ```
+3. 在右侧找到 **Desktop** 项，双击修改
+4. 将值改为目标路径，例如 `D:\Desktop`
+5. 重启或注销后生效
+
+> ⚠️ 修改前先在目标位置创建好文件夹；修改后原桌面文件不会自动迁移，需手动复制。

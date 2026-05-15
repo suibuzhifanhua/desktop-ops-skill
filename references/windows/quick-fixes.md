@@ -258,4 +258,93 @@ msgbox "Download completed"
 
 ---
 
+---
+
+## 🌐 网络 / DNS 类
+
+### 万金油公共 DNS 推荐
+
+| DNS 服务商 | 首选地址 | 备用地址 |
+|-----------|---------|---------|
+| 114 DNS（国内稳定） | `114.114.114.114` | `114.114.115.115` |
+| 腾讯 DNSPod | `119.29.29.29` | `119.28.28.28` |
+| 阿里 DNS | `223.5.5.5` | `223.6.6.6` |
+| Google DNS | `8.8.8.8` | `8.8.4.4` |
+
+> 国内日常推荐使用 **114 DNS** 或 **腾讯 DNSPod**，Google DNS 适合访问国际网站。
+
+---
+
+## 🔐 安全 / 文件完整性
+
+### PowerShell 验证文件哈希值（校验下载文件是否完整）
+```powershell
+# 验证 SHA256（将路径替换为实际文件路径）：
+certutil -hashfile "C:\Users\你的用户名\Downloads\文件名.exe" SHA256
+
+# 或用 PowerShell 原生命令：
+Get-FileHash "C:\path\to\file.exe" -Algorithm SHA256
+```
+> 将输出的哈希值与官网提供的哈希值对比，一致则文件完整未被篡改。
+
+---
+
+## 🖼️ 显卡 / 黑屏类
+
+### 显卡异常、黑屏或花屏（快速重置显卡驱动）
+```
+快捷键：Win + Ctrl + Shift + B
+```
+> 此操作会**重置显卡驱动**（屏幕会短暂黑屏约 1 秒），无需重启，可解决部分花屏、黑屏问题。
+> 注意：如果是硬件损坏导致的黑屏，此方法无效。
+
+---
+
+## 🐧 Linux / 服务器运维
+
+### 阿里云服务器卸载云盾 / Aegis 监控进程
+> 适用于自购 ECS 不需要阿里云监控的场景（⚠️ 企业 ECS 请与安全团队确认后再操作）
+
+```bash
+# 官方卸载脚本
+wget http://update.aegis.aliyun.com/download/uninstall.sh
+chmod +x uninstall.sh
+./uninstall.sh
+
+wget http://update.aegis.aliyun.com/download/quartz_uninstall.sh
+chmod +x quartz_uninstall.sh
+./quartz_uninstall.sh
+
+# 手动清理残留
+pkill aliyun-service
+rm -fr /etc/init.d/agentwatch /usr/sbin/aliyun-service
+rm -rf /usr/local/aegis*
+```
+
+---
+
+## 🌐 浏览器 / 网络工具
+
+### 无 U 盘、无安装包，用 VBScript 下载 Edge 安装包
+> 适用场景：IE 挂了，只有网络，无法正常下载文件
+
+新建记事本，写入以下内容，保存为 `.vbs` 文件，双击运行，等待 "Download completed" 弹窗后桌面出现安装包：
+
+```vbs
+Set winHttp = CreateObject("WinHttp.WinHttpRequest.5.1")
+url = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=zh-cn"
+winHttp.open "GET", url, False
+winHttp.send ""
+Set adodbStream = CreateObject("ADODB.Stream")
+with adodbStream
+  .type = 1
+  .open
+  .write winHttp.responseBody
+  .savetofile "MicrosoftEdgeSetup.exe", 2
+end with
+msgbox "Download completed"
+```
+
+---
+
 *最后更新：2026-05-14 | 来源：https://fisheep.fun/yummy/46*

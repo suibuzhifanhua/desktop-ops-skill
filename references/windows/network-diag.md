@@ -115,3 +115,40 @@ New-NetFirewallRule -DisplayName "Allow Port 3000" -Direction Inbound -Protocol 
 | SSL 证书错误 | 系统时间不对 / 证书过期 | 同步时间，检查证书 |
 | 端口不通 | 防火墙拦截 / 服务未启动 | `Test-NetConnection` 确认 |
 | 网速慢 | 带宽占用 / QoS / DNS 慢 | `netstat -b` 查带宽占用进程 |
+
+---
+
+## 电脑有网但显示无法连接网络（NCSI 修复）
+
+> 来源：[Fisheep的新世界](https://fisheep.fun/yummy/100)
+
+电脑实际上有网络连接，但系统却显示"无法连接网络"。这是 Windows NLA（Network Location Awareness）服务的 NCSI 检测配置异常导致的。
+
+**修复方法**：新建 `.reg` 文件，写入以下内容后双击导入：
+
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NlaSvc\Parameters\Internet]
+"ActiveDnsProbeContent"="131.107.255.255"
+"ActiveDnsProbeContentV6"="fd3e:4f5a:5b81::1"
+"ActiveDnsProbeHost"="dns.msftncsi.com"
+"ActiveDnsProbeHostV6"="dns.msftncsi.com"
+"ActiveWebProbeContent"="Microsoft NCSI"
+"ActiveWebProbeContentV6"="Microsoft NCSI"
+"ActiveWebProbeHost"="www.msftncsi.com"
+"ActiveWebProbeHostV6"="ipv6.msftncsi.com"
+"ActiveWebProbePath"="ncsi.txt"
+"ActiveWebProbePathV6"="ncsi.txt"
+"CaptivePortalTimer"=dword:00000000
+"CaptivePortalTimerBackOffIncrementsInSeconds"=dword:00000005
+"CaptivePortalTimerMaxInSeconds"=dword:0000001e
+"EnableActiveProbing"=dword:00000001
+"PassivePollPeriod"=dword:0000000f
+"StaleThreshold"=dword:0000001e
+"WebTimeout"=dword:00000023
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NlaSvc\Parameters\Internet\ManualProxies]
+```
+
+导入后**重启电脑**生效。此脚本将 NCSI 参数恢复为微软默认值，修复网络状态误判。

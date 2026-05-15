@@ -85,15 +85,6 @@ description: >
 - 参考：[references/windows/win11-optimization.md](references/windows/win11-optimization.md)
 - 触发词：电脑卡、开机慢、游戏帧率低、系统优化、关闭动画、内存清理、磁盘瘦身
 
-#### 13. Fisheep.fun 实用文章整理
-- 参考：根目录 Markdown 文件（来源：[Fisheep的新世界](https://fisheep.fun/)）
-  - [杂事解决（27个常见问题）](./01-杂事解决.md) — [原文](https://fisheep.fun/yummy/46)
-  - [电脑有网但显示无法连接网络](./02-电脑有网但显示无法连接网络.md) — [原文](https://fisheep.fun/yummy/100)
-  - [IE自动跳转EDGE怎么换回来](./03-IE自动跳转EDGE怎么换回来.md) — [原文](https://fisheep.fun/yummy/90)
-  - [桌面换盘](./04-桌面换盘.md) — [原文](https://fisheep.fun/yummy/78)
-  - [Windows如何重置](./05-Windows如何重置.md) — [原文](https://fisheep.fun/yummy/53)
-  - [微信、企业微信空间转移](./06-微信企业微信空间转移.md) — [原文](https://fisheep.fun/yummy/22)
-
 ---
 
 ## 🇨🇳 国产系统分支
