@@ -159,17 +159,49 @@ Windows Registry Editor Version 5.00
 
 > 适用于网络延迟高、带宽跑不满、视频卡顿等拥塞场景。
 
-以**管理员身份**运行 CMD，执行以下命令：
+### 方法一：PowerShell（推荐）
+
+```powershell
+# 以管理员身份运行 PowerShell
+
+# 查看当前所有 TCP 配置模板
+Get-NetTCPSetting
+
+# 查看当前拥塞控制算法
+Get-NetTCPSetting | Select-Object SettingName, CongestionProvider
+
+# 设置为 CTCP（适用于 Internet 模板）
+Set-NetTCPSetting -SettingName "InternetCustom" -CongestionProvider CTCP
+
+# 或者设置 DatacenterCustom 模板（内网/高速链路）
+Set-NetTCPSetting -SettingName "DatacenterCustom" -CongestionProvider CTCP
+```
+
+### 方法二：netsh 新语法
 
 ```cmd
+# 以管理员身份运行 CMD
+
 # 查看当前 supplemental 配置
 netsh int tcp show supplemental
 
-# 设置 Internet 模板的拥塞算法为 CTCP（复合 TCP，适合高延迟/高带宽链路）
+# 设置 Internet 模板的拥塞算法
 netsh int tcp set supplemental template=internet congestionprovider=ctcp
 ```
 
-**说明**：
-- `ctcp`（Compound TCP）是微软专为高带宽延迟积（BDP）链路优化的算法，相比默认的 `none` 可显著提升吞吐量；
-- 若效果不佳，可改回默认：`netsh int tcp set supplemental template=internet congestionprovider=none`；
-- 修改立即生效，无需重启。
+### 可用的 CongestionProvider 值
+
+| 值 | 说明 |
+|---|---|
+| `CTCP` | 复合 TCP，高带宽延迟场景较好 |
+| `DCTCP` | 数据中心 TCP，低延迟内网 |
+| `default` | 恢复默认（CUBIC） |
+| `None` | 不使用拥塞控制扩展 |
+
+### 验证是否生效
+
+```powershell
+Get-NetTCPSetting | Select-Object SettingName, CongestionProvider
+```
+
+> **注意**：上述操作需要**管理员权限**打开 PowerShell/CMD。如果主要目的是优化远程连接（如 RustDesk）质量，服务器端开启 BBR 的收益远大于客户端改 CTCP。
