@@ -152,3 +152,24 @@ Windows Registry Editor Version 5.00
 ```
 
 导入后**重启电脑**生效。此脚本将 NCSI 参数恢复为微软默认值，修复网络状态误判。
+
+---
+
+## 解决网络拥塞问题（TCP 拥塞控制算法调优）
+
+> 适用于网络延迟高、带宽跑不满、视频卡顿等拥塞场景。
+
+以**管理员身份**运行 CMD，执行以下命令：
+
+```cmd
+# 查看当前 supplemental 配置
+netsh int tcp show supplemental
+
+# 设置 Internet 模板的拥塞算法为 CTCP（复合 TCP，适合高延迟/高带宽链路）
+netsh int tcp set supplemental template=internet congestionprovider=ctcp
+```
+
+**说明**：
+- `ctcp`（Compound TCP）是微软专为高带宽延迟积（BDP）链路优化的算法，相比默认的 `none` 可显著提升吞吐量；
+- 若效果不佳，可改回默认：`netsh int tcp set supplemental template=internet congestionprovider=none`；
+- 修改立即生效，无需重启。
