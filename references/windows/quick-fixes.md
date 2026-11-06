@@ -347,4 +347,4 @@ msgbox "Download completed"
 
 ---
 
-*最后更新：2026-05-14 | 来源：https://fisheep.fun/yummy/46*
+*最后更新：2026-05-14*

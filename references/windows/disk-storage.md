@@ -80,8 +80,6 @@ conda clean --all -y
 
 ## 桌面换盘（通过注册表迁移桌面路径）
 
-> 来源：[Fisheep的新世界](https://fisheep.fun/yummy/78)
-
 C 盘空间不足时，可将桌面文件夹迁移到其他分区，减少系统盘占用。
 
 ### 操作步骤

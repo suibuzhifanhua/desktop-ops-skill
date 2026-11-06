@@ -163,8 +163,6 @@ bcdedit /set hypervisorlaunchtype off
 
 ## IE 自动跳转 Edge 的处理
 
-> 来源：[Fisheep的新世界](https://fisheep.fun/yummy/90)
-
 Windows 10/11 中，IE 浏览器会自动跳转到 Edge，若需阻止此行为：
 
 1. 打开 **Edge 浏览器**

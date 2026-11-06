@@ -120,8 +120,6 @@ New-NetFirewallRule -DisplayName "Allow Port 3000" -Direction Inbound -Protocol 
 
 ## 电脑有网但显示无法连接网络（NCSI 修复）
 
-> 来源：[Fisheep的新世界](https://fisheep.fun/yummy/100)
-
 电脑实际上有网络连接，但系统却显示"无法连接网络"。这是 Windows NLA（Network Location Awareness）服务的 NCSI 检测配置异常导致的。
 
 **修复方法**：新建 `.reg` 文件，写入以下内容后双击导入：
